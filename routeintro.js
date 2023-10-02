@@ -42,10 +42,9 @@ app.post('/login', (requete, resultat) =>  {
     const motDePasse = requete.body.motDePasse;
     const nom = requete.body.nom;
     const prenom = requete.body.prenom;
-    if(identifiant === 'admin' && motDePasse === 'admin')
-        resultat.send('Bonjour l\'administrateur')
-    else
-        resultat.send('Bonjour ' + identifiant + ", vous êtes Mr/Mme " + nom + " " + prenom)
+
+    identifiant === 'admin' && motDePasse === 'admin' ? resultat.send('Bonjour l\'administrateur') : resultat.send('Bonjour ' + identifiant + ", vous êtes Mr/Mme " + nom + " " + prenom)
+
 })
 
 app.get('/api/leseleves/:nomEleve', (requete, resultat) => {
